@@ -48,7 +48,16 @@ window.addEventListener('load', () => {
         .to(".scroll-indicator", {
             opacity: 1,
             duration: 1
-        }, "-=0.5");
+       }, "-=0.5")
+        .to(".sticky-socials", {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: "back.out(1.7)"
+        }, "-=0.8");
+
+    // Set initial state for sticky socials
+    gsap.set(".sticky-socials", { x: -30 });
 });
 
 
