@@ -3,13 +3,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 // --- LENIS SMOOTH SCROLL INIT ---
 const lenis = new Lenis({
-    duration: 1.2,
+    duration: 1.4,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: 'vertical',
     gestureOrientation: 'vertical',
     smoothWheel: true,
-    smoothTouch: true,
-    touchMultiplier: 2,
+    smoothTouch: false,
+    touchMultiplier: 1,
     wheelMultiplier: 1,
     infinite: false,
 });
@@ -114,7 +114,7 @@ const storyTl = gsap.timeline({
         trigger: ".story-section",
         start: "top top",
         end: "bottom bottom",
-        scrub: 1, // Smooth scrub
+        scrub: 2, // Higher = smoother, less sensitive
     }
 });
 
@@ -126,14 +126,14 @@ storyTl.to(".story-graphic", {
 }, 0);
 
 // Step 1
-storyTl.to(".story-step-1", { opacity: 1, y: "-50%", duration: 2 })
-    .to(".story-step-1", { opacity: 0, y: "-100%", duration: 2, delay: 1 })
+storyTl.to(".story-step-1", { opacity: 1, y: "-50%", duration: 3 })
+    .to(".story-step-1", { opacity: 0, y: "-100%", duration: 3, delay: 2 })
     // Step 2
-    .to(".story-step-2", { opacity: 1, y: "-50%", duration: 2 })
-    .to(".story-step-2", { opacity: 0, y: "-100%", duration: 2, delay: 1 })
+    .to(".story-step-2", { opacity: 1, y: "-50%", duration: 3 })
+    .to(".story-step-2", { opacity: 0, y: "-100%", duration: 3, delay: 2 })
     // Step 3
-    .to(".story-step-3", { opacity: 1, y: "-50%", duration: 2 })
-    .to(".story-step-3", { opacity: 0, scale: 0.9, duration: 2, delay: 1 });
+    .to(".story-step-3", { opacity: 1, y: "-50%", duration: 3 })
+    .to(".story-step-3", { opacity: 0, scale: 0.9, duration: 3, delay: 2 });
 
 // Fade out graphic at end of story section
 storyTl.to(".story-graphic", {
