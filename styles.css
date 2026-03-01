@@ -1,0 +1,243 @@
+/* Custom Styles for whattobite */
+
+/* Neon Gradient Text with flowing animation */
+.gradient-text {
+    background: linear-gradient(135deg, #00E0FF 0%, #6A00FF 50%, #FF0090 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% auto;
+    animation: flowGradient 5s ease infinite reverse;
+}
+
+@keyframes flowGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Glassmorphism Panel Utility */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+}
+
+/* Glowing Border for Timer Cards */
+.glow-border {
+    box-shadow:
+        0 4px 30px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.glow-border:hover {
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.2),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+        0 0 20px rgba(0, 224, 255, 0.2),
+        0 0 20px rgba(255, 0, 144, 0.2);
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* Background Shapes Gradients */
+.bg-shape-1 {
+    background: radial-gradient(circle, #00E0FF 0%, transparent 70%);
+}
+
+.bg-shape-2 {
+    background: radial-gradient(circle, #FF0090 0%, transparent 70%);
+}
+
+.bg-shape-3 {
+    background: radial-gradient(circle, #6A00FF 0%, transparent 70%);
+}
+
+/* Scroll Indicator Line Flow */
+@keyframes scroll-indicator {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    50% {
+        transform: translateY(0%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.animate-scroll-indicator {
+    animation: scroll-indicator 2.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+/* Lenis Recommended CSS Base */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+/* Scrollytelling Graphics */
+@keyframes slow-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slow-spin-reverse {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+.animate-slow-spin {
+    animation: slow-spin 40s linear infinite;
+}
+
+.animate-slow-spin-reverse {
+    animation: slow-spin-reverse 30s linear infinite;
+}
+
+/* 3D Flip Clock Utilities */
+.perspective-1000 {
+    perspective: 1000px;
+}
+
+.transform-style-3d {
+    transform-style: preserve-3d;
+}
+
+.backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Realistic 3D Flip Clock Styles */
+.flip-clock {
+    display: flex;
+    flex-direction: column;
+}
+
+.flip-clock .flip-half {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: rgba(20, 20, 20, 0.5);
+    /* Physical card look on top of glass panel */
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.flip-clock .flip-half span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    /* Total height of parent to perfectly center split text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Unique Gradients mapped per clock */
+#clock-days .flip-num,
+#mini-clock-days .flip-num {
+    background-image: linear-gradient(to bottom right, #00E0FF, white);
+}
+
+#clock-hours .flip-num,
+#mini-clock-hours .flip-num {
+    background-image: linear-gradient(to bottom, #6A00FF, white);
+}
+
+#clock-minutes .flip-num,
+#mini-clock-minutes .flip-num {
+    background-image: linear-gradient(to top left, #FF0090, white);
+}
+
+#clock-seconds .flip-num,
+#mini-clock-seconds .flip-num {
+    background-image: linear-gradient(to bottom right, #FF0090, #00E0FF);
+}
+
+.flip-clock .flip-half.top,
+.flip-clock .flip-half.flip-top {
+    top: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+    transform-origin: bottom;
+    box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.flip-clock .flip-half.top span,
+.flip-clock .flip-half.flip-top span {
+    top: 0;
+}
+
+.flip-clock .flip-half.bottom,
+.flip-clock .flip-half.flip-bottom {
+    bottom: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    transform-origin: top;
+    box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.flip-clock .flip-half.bottom span,
+.flip-clock .flip-half.flip-bottom span {
+    bottom: 0;
+    /* Aligns text up to crop bottom half correctly */
+}
+
+/* Simulated 3D Flaps */
+.flip-clock .flip-top {
+    z-index: 2;
+    backface-visibility: hidden;
+}
+
+.flip-clock .flip-bottom {
+    z-index: 2;
+    backface-visibility: hidden;
+}

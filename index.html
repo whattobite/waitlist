@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>whattobite | Coming Soon</title>
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="favicon-32x32.png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+    <!-- Lenis -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <!-- GSAP Core and ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body class="bg-[#050505] text-white font-['Outfit'] overflow-x-hidden antialiased">
+    <!-- Background Elements -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden container-bg">
+        <div
+            class="bg-shape bg-shape-1 absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full mix-blend-screen filter blur-[100px] opacity-40">
+        </div>
+        <div
+            class="bg-shape bg-shape-2 absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full mix-blend-screen filter blur-[120px] opacity-40">
+        </div>
+        <div
+            class="bg-shape bg-shape-3 absolute top-[40%] left-[60%] w-[30vw] h-[30vw] rounded-full mix-blend-screen filter blur-[90px] opacity-30">
+        </div>
+
+        <!-- Depth Parallax Layers -->
+        <div
+            class="parallax-layer parallax-layer-1 absolute top-[20%] left-[10%] w-16 h-16 rounded-full bg-gradient-to-tr from-[#00E0FF] to-[#6A00FF] filter blur-[10px] opacity-60">
+        </div>
+        <div
+            class="parallax-layer parallax-layer-2 absolute top-[60%] right-[15%] w-24 h-24 rounded-full bg-gradient-to-bl from-[#FF0090] to-[#6A00FF] filter blur-[15px] opacity-50">
+        </div>
+        <div
+            class="parallax-layer parallax-layer-3 absolute bottom-[10%] left-[30%] w-12 h-12 rounded-full bg-gradient-to-r from-[#00E0FF] to-[#FF0090] filter blur-[8px] opacity-70">
+        </div>
+        <div
+            class="parallax-layer parallax-layer-4 absolute top-[80%] right-[40%] w-20 h-20 rounded-full bg-gradient-to-t from-[#6A00FF] to-[#FF0090] filter blur-[12px] opacity-50">
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="relative z-10 w-full min-h-screen flex flex-col items-center pb-24">
+
+        <!-- Hero Section -->
+        <section class="hero-section w-full h-screen flex flex-col items-center justify-center px-4 relative">
+            <!-- Hero Text With Image -->
+            <div class="flex items-center justify-center gap-1 mb-6 opacity-0 transform translate-y-12 hero-headline">
+                <img src="hero-image.png" alt="Hero Image"
+                    class="h-20 md:h-28 lg:h-36 w-auto object-contain shrink-0 mt-[25px]">
+                <h1
+                    class="text-[3.5rem] md:text-[5.5rem] lg:text-[7rem] font-semibold text-center tracking-tight gradient-text leading-none mt-2">
+                    whattoBite
+                </h1>
+            </div>
+
+            <p
+                class="hero-subheadline text-xl md:text-2xl text-center text-gray-300 max-w-2xl opacity-0 transform translate-y-12 leading-relaxed">
+                Less scrolling. More chewing. WhattoBite learns your cravings and serves you the perfect match.
+            </p>
+
+            <!-- Mini Hero Countdown -->
+            <div
+                class="mini-countdown mt-8 opacity-0 transform translate-y-8 flex gap-4 md:gap-6 items-center justify-center">
+                <div class="flex flex-col items-center">
+                    <span id="mini-clock-days"
+                        class="text-4xl md:text-5xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-[#00E0FF] to-white drop-shadow-[0_0_15px_rgba(0,224,255,0.3)]">00</span>
+                    <span
+                        class="text-[0.6rem] md:text-xs uppercase tracking-widest mt-1 text-gray-400 font-semibold">Days</span>
+                </div>
+                <div class="text-2xl md:text-3xl font-bold text-white/20 -mt-4">:</div>
+                <div class="flex flex-col items-center">
+                    <span id="mini-clock-hours"
+                        class="text-4xl md:text-5xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-[#6A00FF] to-white drop-shadow-[0_0_15px_rgba(106,0,255,0.3)]">00</span>
+                    <span
+                        class="text-[0.6rem] md:text-xs uppercase tracking-widest mt-1 text-gray-400 font-semibold">Hours</span>
+                </div>
+                <div class="text-2xl md:text-3xl font-bold text-white/20 -mt-4">:</div>
+                <div class="flex flex-col items-center">
+                    <span id="mini-clock-minutes"
+                        class="text-4xl md:text-5xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-tl from-[#FF0090] to-white drop-shadow-[0_0_15px_rgba(255,0,144,0.3)]">00</span>
+                    <span
+                        class="text-[0.6rem] md:text-xs uppercase tracking-widest mt-1 text-gray-400 font-semibold">Mins</span>
+                </div>
+                <div class="text-2xl md:text-3xl font-bold text-white/20 -mt-4">:</div>
+                <div class="flex flex-col items-center">
+                    <span id="mini-clock-seconds"
+                        class="text-4xl md:text-5xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-[#FF0090] to-[#00E0FF] drop-shadow-[0_0_15px_rgba(255,0,144,0.3)]">00</span>
+                    <span
+                        class="text-[0.6rem] md:text-xs uppercase tracking-widest mt-1 text-gray-400 font-semibold">Secs</span>
+                </div>
+            </div>
+
+            <div
+                class="scroll-indicator absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-0">
+                <span class="text-xs uppercase tracking-[0.2em] text-[#00E0FF] mb-3 font-semibold">Scroll Down</span>
+                <div class="w-[1.5px] h-16 bg-white/10 relative overflow-hidden rounded-full">
+                    <div
+                        class="w-full h-full bg-gradient-to-b from-[#00E0FF] via-[#6A00FF] to-[#FF0090] animate-scroll-indicator">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scrollytelling Section -->
+        <section class="story-section w-full relative z-20 min-h-[300vh]">
+            <div
+                class="story-container sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
+
+                <!-- Abstract Centerpiece -->
+                <div
+                    class="story-graphic absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none">
+                    <!-- Layered Spinning Rings -->
+                    <div
+                        class="absolute w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] rounded-full border border-[#00E0FF]/30 glow-border animate-slow-spin">
+                    </div>
+                    <div
+                        class="absolute w-[45vw] h-[45vw] max-w-[450px] max-h-[450px] rounded-full border border-[#6A00FF]/40 glow-border animate-slow-spin-reverse delay-150">
+                    </div>
+                    <div
+                        class="absolute w-[30vw] h-[30vw] max-w-[300px] max-h-[300px] rounded-full bg-gradient-to-tr from-[#00E0FF]/10 to-[#FF0090]/10 backdrop-blur-3xl glow-border">
+                    </div>
+                </div>
+
+                <!-- Text Sequences -->
+                <div
+                    class="story-text-wrapper relative z-10 w-full max-w-5xl px-6 h-full flex items-center justify-center">
+
+                    <div class="story-step story-step-1 absolute text-center opacity-0 translate-y-24">
+                        <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white tracking-tight">Stop
+                            asking <span
+                                class="bg-clip-text text-transparent bg-gradient-to-r from-[#FF0090] to-[#6A00FF]">‘What
+                                should we eat?’</span> Forever.</h2>
+                        <p class="text-xl md:text-2xl lg:text-3xl text-gray-400 font-light max-w-2xl mx-auto">Because 47
+                            minutes deciding what to eat is a crime. Let AI pick your next favorite meal.</p>
+                    </div>
+
+                    <div class="story-step story-step-2 absolute text-center opacity-0 translate-y-24">
+                        <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white tracking-tight">From ‘Uhh…
+                            anything’ to <span
+                                class="bg-clip-text text-transparent bg-gradient-to-r from-[#00E0FF] to-[#6A00FF]">‘THIS.
+                                Right now.’</span></h2>
+                        <p class="text-xl md:text-2xl lg:text-3xl text-gray-400 font-light max-w-2xl mx-auto">WhattoBite
+                            knows your cravings before you do.</p>
+                    </div>
+
+                    <div class="story-step story-step-3 absolute text-center opacity-0 translate-y-24">
+                        <h2 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 text-white tracking-tighter"><span
+                                class="gradient-text">Food indecision ends here.</span></h2>
+                        <p class="text-2xl md:text-3xl lg:text-4xl text-gray-300 font-medium max-w-3xl mx-auto">Your
+                            next obsession is one bite away.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section class="countdown-section w-full py-32 px-4 relative z-20 flex flex-col items-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-center text-white tracking-tight">Launching In</h2>
+            <div
+                class="h-8 md:h-10 mb-12 flex items-center justify-center text-xl md:text-2xl text-[#00E0FF] font-light">
+                <span id="hype-text"></span><span class="animate-pulse font-normal ml-1">|</span>
+            </div>
+            <div
+                class="timer-container grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto opacity-0 transform translate-y-16">
+
+                <div class="flex flex-col items-center">
+                    <div
+                        class="timer-card relative w-24 h-32 md:w-32 md:h-40 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 glow-border shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-visible group p-0 pointer-events-none">
+                        <!-- Calendar Rings -->
+                        <div
+                            class="absolute -top-3 left-[20%] w-2 h-6 md:w-3 md:h-8 rounded-full border border-gray-500 bg-gradient-to-b from-gray-400 to-[#111] z-30 shadow-md">
+                        </div>
+                        <div
+                            class="absolute -top-3 right-[20%] w-2 h-6 md:w-3 md:h-8 rounded-full border border-gray-500 bg-gradient-to-b from-gray-400 to-[#111] z-30 shadow-md">
+                        </div>
+
+                        <!-- True Flip Clock Container -->
+                        <div class="flip-clock perspective-1000 w-full h-full relative" id="clock-days" data-val="00">
+                            <div class="top flip-half"><span
+                                    class="flip-num text-5xl md:text-7xl font-bold tracking-tighter">00</span></div>
+                            <div class="bottom flip-half"><span
+                                    class="flip-num text-5xl md:text-7xl font-bold tracking-tighter">00</span></div>
+                        </div>
+                    </div>
+                    <span
+                        class="text-xs md:text-sm uppercase tracking-widest mt-5 text-gray-400 font-semibold drop-shadow-md">Days</span>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div
+                        class="timer-card relative w-24 h-32 md:w-32 md:h-40 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 glow-border shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-visible group p-0 pointer-events-none">
+                        <!-- Calendar Rings -->
+                        <div
+                            class="absolute -top-3 left-[20%] w-2 h-6 md:w-3 md:h-8 rounded-full border border-gray-500 bg-gradient-to-b from-gray-400 to-[#111] z-30 shadow-md">
+                        </div>
+                        <div
+                            class="absolute -top-3 right-[20%] w-2 h-6 md:w-3 md:h-8 rounded-full border border-gray-500 bg-gradient-to-b from-gray-400 to-[#111] z-30 shadow-md">
+                        </div>
+
+                        <!-- True Flip Clock Container -->
+                        <div class="flip-clock perspective-1000 w-full h-full relative" id="clock-hours" data-val="00">
+                            <div class="top flip-half"><span
+                                    class="flip-num text-5xl md:text-7xl font-bold tracking-tighter">00</span></div>
+                            <div class="bottom flip-half"><span
+                                    class="flip-num text-5xl md:text-7xl font-bold tracking-tighter">00</span></div>
+                        </div>
+                    </div>
+                    <span
+                        class="text-xs md:text-sm uppercase tracking-widest mt-5 text-gray-400 font-semibold drop-shadow-md">Hours</span>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div
+                        class="timer-card relative w-24 h-32 md:w-32 md:h-40 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 glow-border shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-visible group p-0 pointer-events-none">
+                        <!-- Calendar Rings -->
+                        <div
+                            class="absolute -top-3 left-[20%] w-2 h-6 md:w-3 md:h-8 rounded-full border border-gray-500 bg-gradient-to-b from-gray-400 to-[#111] z-30 shadow-md">
+                        </div>
+                        <div
+                            class="absolute -top-3 right-[20%] w-2 h-6 md:w-3 md:h-8 rounded-full border border-gray-500 bg-gradient-to-b from-gray-400 to-[#111] z-30 shadow-md">
+                        </div>
+
+                        <!-- True Flip Clock Container -->
+                        <div class="flip-clock perspective-1000 w-full h-full relative" id="clock-minutes"
+                            data-val="00">
+                            <div class="top flip-half"><span
+                                    class="flip-num text-5xl md:text-7xl font-bold tracking-tighter">00</span></div>
+                            <div class="bottom flip-half"><span
+                                    class="flip-num text-5xl md:text-7xl font-bold tracking-tighter">00</span></div>
+                        </div>
+                    </div>
+                    <span
+                        class="text-xs md:text-sm uppercase tracking-widest mt-5 text-gray-400 font-semibold drop-shadow-md">Minutes</span>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div
+                        class="timer-card relative w-24 h-32 md:w-32 md:h-40 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 glow-border shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-visible group p-0 pointer-events-none">
+                        <!-- Calendar Rings -->
+                        <div
+                            class="absolute -top-3 left-[20%] w-2 h-6 md:w-3 md:h-8 rounded-full border border-gray-500 bg-gradient-to-b from-gray-400 to-[#111] z-30 shadow-md">
+                        </div>
+                        <div
+                            class="absolute -top-3 right-[20%] w-2 h-6 md:w-3 md:h-8 rounded-full border border-gray-500 bg-gradient-to-b from-gray-400 to-[#111] z-30 shadow-md">
+                        </div>
+
+                        <!-- True Flip Clock Container -->
+                        <div class="flip-clock perspective-1000 w-full h-full relative" id="clock-seconds"
+                            data-val="00">
+                            <div class="top flip-half"><span
+                                    class="flip-num text-5xl md:text-7xl font-bold tracking-tighter">00</span></div>
+                            <div class="bottom flip-half"><span
+                                    class="flip-num text-5xl md:text-7xl font-bold tracking-tighter">00</span></div>
+                        </div>
+                    </div>
+                    <span
+                        class="text-xs md:text-sm uppercase tracking-widest mt-5 text-gray-400 font-semibold drop-shadow-md">Seconds</span>
+                </div>
+
+            </div>
+
+            <!-- Local Launch Time Display -->
+            <p id="local-time-display"
+                class="mt-12 text-gray-400 font-medium text-sm md:text-base tracking-widest uppercase opacity-0 transform translate-y-4">
+            </p>
+        </section>
+
+        <!-- Waitlist Form Section -->
+        <section class="waitlist-section w-full py-40 px-4 relative z-30 flex flex-col items-center">
+            <div
+                class="form-container max-w-2xl w-full mx-auto text-center glass-panel p-8 md:p-16 rounded-[2.5rem] border border-white/10 relative overflow-hidden opacity-0 transform translate-y-16 shadow-2xl">
+                <!-- Inner glow -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-br from-[#00E0FF]/10 via-[#6A00FF]/5 to-[#FF0090]/10 pointer-events-none">
+                </div>
+
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-white tracking-tight relative z-10">Join the
+                    Private Tasting</h2>
+                <p class="text-gray-400 mb-12 text-lg md:text-xl font-light relative z-10">We’re building the smartest
+                    way to discover exactly what you should eat — based on you. Join the waitlist and taste the future
+                    first.</p>
+
+                <form class="flex flex-col gap-6 w-full max-w-lg mx-auto relative z-10 pt-8" id="waitlist-form"
+                    novalidate>
+                    <div class="flex-1 relative">
+                        <div id="error-msg"
+                            class="absolute -top-7 left-6 text-rose-500 text-sm opacity-0 transition-opacity duration-300">
+                            That crumb doesn’t look right. Double-check the email.</div>
+                        <input type="text" placeholder="Drop your email. We’ll handle the rest."
+                            class="w-full bg-white/5 border border-white/10 rounded-full px-8 py-5 text-white placeholder-gray-500 focus:outline-none focus:border-[#6A00FF]/50 transition-all duration-300 focus:ring-2 focus:ring-[#6A00FF]/20 focus:bg-white/10 font-medium text-lg">
+                    </div>
+
+                    <button type="submit"
+                        class="magnetic-btn relative overflow-hidden rounded-full py-5 px-10 font-bold text-white transition-all duration-300 group shrink-0 bg-white/5 border border-white/10 hover:border-transparent mt-4 md:mt-0">
+                        <div
+                            class="btn-bg absolute inset-0 bg-gradient-to-r from-[#00E0FF] via-[#6A00FF] to-[#FF0090] opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                        </div>
+                        <span class="relative z-10 block pointer-events-none tracking-wide text-lg">Claim My First
+                            Bite</span>
+                    </button>
+
+                </form>
+
+                <!-- Beautiful Success Message Overlay -->
+                <div id="success-msg"
+                    class="absolute inset-0 bg-[#050505]/95 backdrop-blur-2xl flex flex-col items-center justify-center opacity-0 pointer-events-none text-white z-50">
+
+                    <!-- Decorative inner glow for success state -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-[#00E0FF]/20 via-transparent to-[#FF0090]/20 pointer-events-none">
+                    </div>
+
+                    <div class="text-6xl md:text-7xl mb-6 transform scale-0" id="success-icon">✨</div>
+                    <span id="success-text-span"
+                        class="bg-clip-text text-transparent bg-gradient-to-r from-[#00E0FF] via-white to-[#FF0090] text-3xl md:text-4xl font-extrabold tracking-tight relative z-10 px-6 drop-shadow-lg">Reservation
+                        confirmed. 🍽️</span>
+                    <p class="text-gray-300 mt-4 font-medium text-lg relative z-10 max-w-sm px-4">You're officially on
+                        the VIP list. Keep an eye on your inbox.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <footer
+            class="mt-20 text-gray-500 text-sm font-medium z-30 relative text-center pb-8 flex flex-col items-center gap-4">
+            <div><span id="footer-quote"></span><span class="animate-pulse font-normal ml-0.5">|</span></div>
+
+            <!-- Instagram Link -->
+            <a href="https://instagram.com/whattobite" target="_blank" rel="noopener noreferrer"
+                class="flex items-center gap-2 text-gray-400 hover:text-[#FF0090] transition-colors duration-300 group">
+                <svg viewBox="0 0 24 24" fill="currentColor"
+                    class="w-5 h-5 group-hover:scale-110 transition-transform duration-300">
+                    <path
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+                <span class="font-semibold tracking-wide">@whattobite</span>
+            </a>
+
+            <span>&copy; 2026 WhattoBite. All rights reserved.</span>
+        </footer>
+    </main>
+
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
