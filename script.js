@@ -411,7 +411,7 @@ if (magneticBtn) {
 
 // --- RANDOM FOOTER QUOTE ---
 const footerQuotes = [
-    "Cooked up with ❤️ by the WhattoBite team.",
+    "Cooked up with ❤️ by the whattoBite team.",
     "Built for cravings. Designed for overthinkers.",
     "Please don’t lick the screen.",
     "Powered by AI. Seasoned with taste."
