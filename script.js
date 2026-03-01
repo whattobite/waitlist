@@ -57,7 +57,7 @@ window.addEventListener('load', () => {
         }, "-=0.8");
 
     // Set initial state for sticky socials
-    gsap.set(".sticky-socials", { x: -30 });
+    gsap.set(".sticky-socials", { y: 20 });
 });
 
 
