@@ -1,0 +1,10 @@
+# robots.txt for whattobite.com
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://whattobite.com/sitemap.xml
+
+# Disallow admin/system paths
+User-agent: *
+Disallow: /.git/
