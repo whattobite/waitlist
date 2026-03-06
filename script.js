@@ -48,7 +48,7 @@ window.addEventListener('load', () => {
         .to(".scroll-indicator", {
             opacity: 1,
             duration: 1
-       }, "-=0.5")
+        }, "-=0.5")
         .to(".sticky-socials", {
             opacity: 1,
             x: 0,
