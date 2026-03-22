@@ -178,7 +178,7 @@ gsap.to("#local-time-display", {
 });
 
 // --- COUNTDOWN TIMER LOGIC ---
-const launchTarget = new Date('April 19, 2026 12:15:00 GMT+0530'); // Explicitly set to IST (+5:30)
+const launchTarget = new Date('April 9, 2026 12:15:00 GMT+0530'); // Explicitly set to IST (+5:30)
 const launchDate = launchTarget.getTime();
 
 // Format the localized string for the user's IP
